@@ -43,11 +43,12 @@ public class MainActivity extends ActionBarActivity {
 				// String a = abc[0];
 				// String b = abc[1];
 				// int c = abc.length;
-				for(int i = 0; i < firstArray.length; i++){
-					for(int j = 1; j < secondArray.length; j++){
-						if(i < j && Integer.parseInt(firstArray[i]) > Integer.parseInt(secondArray[j])){
+				for(int i = 0; i < firstArray.length - 1; i++){
+					int temp = Integer.parseInt(firstArray[i]);
+					for(int j = i+1; j < secondArray.length - 1; j++){
+						if( temp > Integer.parseInt(secondArray[j])){
 							
-							
+							txvResult.setText(i+"," +j);
 						}
 					}
 				}
