@@ -1,9 +1,5 @@
 package com.linhnguyen.findcouple;
 
-import java.util.ArrayList;
-
-import android.R.integer;
-import android.R.string;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -43,12 +39,12 @@ public class MainActivity extends ActionBarActivity {
 				// String a = abc[0];
 				// String b = abc[1];
 				// int c = abc.length;
-				for(int i = 0; i < firstArray.length - 1; i++){
+				for (int i = 0; i < firstArray.length - 1; i++) {
 					int temp = Integer.parseInt(firstArray[i]);
-					for(int j = i+1; j < secondArray.length - 1; j++){
-						if( temp > Integer.parseInt(secondArray[j])){
-							
-							txvResult.setText(i+"," +j);
+					for (int j = i + 1; j < secondArray.length - 1; j++) {
+						if (temp > Integer.parseInt(secondArray[j])) {
+
+							txvResult.setText(i + "," + j);
 						}
 					}
 				}
