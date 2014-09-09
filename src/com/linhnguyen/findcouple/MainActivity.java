@@ -45,6 +45,7 @@ public class MainActivity extends ActionBarActivity {
 				// String a = abc[0];
 				// String b = abc[1];
 				// int c = abc.length;
+<<<<<<< HEAD
 				for (int i = 0; i < firstArray.length - 1; i++) {
 					int temp1 = Integer.parseInt(firstArray[i]);
 					for (int j = i + 1; j < secondArray.length - 1; j++) {
@@ -53,6 +54,14 @@ public class MainActivity extends ActionBarActivity {
 							// txvResult.setText("(" + i + "," + j + ")");
 							playerList.add("(" + i + "," + j + ")");
 							reSult.add("(" + temp1 + "," + temp2 + ")");
+=======
+				for(int i = 0; i < firstArray.length - 1; i++){
+					int temp = Integer.parseInt(firstArray[i]);
+					for(int j = i+1; j < secondArray.length - 1; j++){
+						if( temp > Integer.parseInt(secondArray[j])){
+							
+							txvResult.setText(i+"," +j);
+>>>>>>> d3d618cfc2eddbdb1cdf393104a8e0c516bb0cbd
 						}
 					}
 				}
