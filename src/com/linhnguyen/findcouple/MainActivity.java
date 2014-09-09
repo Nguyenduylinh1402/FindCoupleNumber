@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -45,7 +43,6 @@ public class MainActivity extends ActionBarActivity {
 				// String a = abc[0];
 				// String b = abc[1];
 				// int c = abc.length;
-<<<<<<< HEAD
 				for (int i = 0; i < firstArray.length - 1; i++) {
 					int temp1 = Integer.parseInt(firstArray[i]);
 					for (int j = i + 1; j < secondArray.length - 1; j++) {
@@ -54,14 +51,6 @@ public class MainActivity extends ActionBarActivity {
 							// txvResult.setText("(" + i + "," + j + ")");
 							playerList.add("(" + i + "," + j + ")");
 							reSult.add("(" + temp1 + "," + temp2 + ")");
-=======
-				for(int i = 0; i < firstArray.length - 1; i++){
-					int temp = Integer.parseInt(firstArray[i]);
-					for(int j = i+1; j < secondArray.length - 1; j++){
-						if( temp > Integer.parseInt(secondArray[j])){
-							
-							txvResult.setText(i+"," +j);
->>>>>>> d3d618cfc2eddbdb1cdf393104a8e0c516bb0cbd
 						}
 					}
 				}
@@ -72,22 +61,4 @@ public class MainActivity extends ActionBarActivity {
 		});
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 }
