@@ -13,11 +13,9 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity {
 	EditText edt1, edt2;
 	TextView txvResult, txv;
-	Button btnCount;
+	Button btnCount, btnClear;
 	public static ArrayList<String> playerList = new ArrayList<String>();
 	public static ArrayList<String> reSult = new ArrayList<String>();
-
-	// String playerList[];
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,23 +32,31 @@ public class MainActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
+				playerList.clear();
+				reSult.clear();
+
 				String first = edt1.getText().toString();
 				String firstArray[] = first.split(" ");
 
 				String second = edt2.getText().toString();
 				String secondArray[] = second.split(" ");
 
-				// String a = abc[0];
-				// String b = abc[1];
-				// int c = abc.length;
-				for (int i = 0; i < firstArray.length - 1; i++) {
-					int temp1 = Integer.parseInt(firstArray[i]);
-					for (int j = i + 1; j < secondArray.length - 1; j++) {
-						if (temp1 > Integer.parseInt(secondArray[j])) {
-							int temp2 = Integer.parseInt(secondArray[j]);
-							// txvResult.setText("(" + i + "," + j + ")");
-							playerList.add("(" + i + "," + j + ")");
+				// int size = min(firstArray.length, secondArray.length);
+
+				int size = Math.min(firstArray.length, secondArray.length - 1);
+				//int[] secondIntArray = convert(secondArray, size);
+				int[] secondIntArray = convert(secondArray, secondArray.length);
+				
+
+				for (int i = 0; i < size; i++) {
+					final int temp1 = Integer.parseInt(firstArray[i]);
+					String a = ("(" + i + ",");
+					for (int j = i + 1; j < size; j++) {
+						int temp2 = secondIntArray[j];
+						if (temp1 > temp2) {
+							playerList.add(a + j + ")");
 							reSult.add("(" + temp1 + "," + temp2 + ")");
+
 						}
 					}
 				}
@@ -59,6 +65,36 @@ public class MainActivity extends ActionBarActivity {
 				txv.setText(reSult.toString());
 			}
 		});
+		btnClear = (Button) findViewById(R.id.btnClear);
+		btnClear.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				edt1.setText(null);
+				edt2.setText(null);
+				playerList.clear();
+				reSult.clear();
+				txvResult.setText("");
+				txv.setText("");
+			}
+		});
+	}
+
+	private int[] convert(String[] tring, int length) { // Note the [] after the
+														// String.
+		int number[] = new int[length];
+
+		for (int i = 0; i < length; i++) {
+			number[i] = Integer.parseInt(tring[i]);
+		}
+		return number;
+	}
+
+	public int min(int a, int b) {
+		if (a < (b - 1)) {
+			return a;
+		} else
+			return (b - 1);
 	}
 
 }
