@@ -2,8 +2,6 @@ package com.linhnguyen.findcouple;
 
 import java.util.ArrayList;
 
-import android.R.integer;
-import android.R.string;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -16,10 +14,12 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 	EditText edt1, edt2;
-	TextView txvResult;
+	TextView txvResult, txv;
 	Button btnCount;
+	public static ArrayList<String> playerList = new ArrayList<String>();
+	public static ArrayList<String> reSult = new ArrayList<String>();
 
-	// String abc[];
+	// String playerList[];
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
 		edt1 = (EditText) findViewById(R.id.edt1);
 		edt2 = (EditText) findViewById(R.id.edt2);
 		txvResult = (TextView) findViewById(R.id.txvResult);
+		txv = (TextView) findViewById(R.id.txv);
 		btnCount = (Button) findViewById(R.id.btnCount);
 
 		btnCount.setOnClickListener(new OnClickListener() {
@@ -38,19 +39,26 @@ public class MainActivity extends ActionBarActivity {
 				String first = edt1.getText().toString();
 				String firstArray[] = first.split(" ");
 
-				String second = edt1.getText().toString();
+				String second = edt2.getText().toString();
 				String secondArray[] = second.split(" ");
+
 				// String a = abc[0];
 				// String b = abc[1];
 				// int c = abc.length;
-				for(int i = 0; i < firstArray.length; i++){
-					for(int j = 1; j < secondArray.length; j++){
-						if(i < j && Integer.parseInt(firstArray[i]) > Integer.parseInt(secondArray[j])){
-							
-							
+				for (int i = 0; i < firstArray.length - 1; i++) {
+					int temp1 = Integer.parseInt(firstArray[i]);
+					for (int j = i + 1; j < secondArray.length - 1; j++) {
+						if (temp1 > Integer.parseInt(secondArray[j])) {
+							int temp2 = Integer.parseInt(secondArray[j]);
+							// txvResult.setText("(" + i + "," + j + ")");
+							playerList.add("(" + i + "," + j + ")");
+							reSult.add("(" + temp1 + "," + temp2 + ")");
 						}
 					}
 				}
+
+				txvResult.setText(playerList.toString());
+				txv.setText(reSult.toString());
 			}
 		});
 	}
