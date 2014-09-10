@@ -42,27 +42,34 @@ public class MainActivity extends ActionBarActivity {
 				String secondArray[] = second.split(" ");
 
 				// int size = min(firstArray.length, secondArray.length);
-
-				int size = Math.min(firstArray.length, secondArray.length - 1);
-				//int[] secondIntArray = convert(secondArray, size);
-				int[] secondIntArray = convert(secondArray, secondArray.length);
-				
+				int firstlength = firstArray.length;
+				int secondlength = secondArray.length;
+				int size = Math.min(firstlength, secondlength - 1);
+				// int[] secondIntArray = convert(secondArray, size);
+				int[] secondIntArray = convert(secondArray, secondlength);
 
 				for (int i = 0; i < size; i++) {
 					final int temp1 = Integer.parseInt(firstArray[i]);
-					String a = ("(" + i + ",");
-					for (int j = i + 1; j < size; j++) {
+					// String a = ("(" + i + ",");
+					for (int j = i + 1; j < secondlength; j++) {
 						int temp2 = secondIntArray[j];
+
 						if (temp1 > temp2) {
-							playerList.add(a + j + ")");
-							reSult.add("(" + temp1 + "," + temp2 + ")");
+							String str = new StringBuilder("(")
+									.append(i).append(",").append(j)
+									.append(")").toString();
+							
+							//String abc = str.toString();
+							
+							playerList.add(str);
+							// reSult.add("(" + temp1 + "," + temp2 + ")");
 
 						}
 					}
 				}
 
 				txvResult.setText(playerList.toString());
-				txv.setText(reSult.toString());
+				// txv.setText(reSult.toString());
 			}
 		});
 		btnClear = (Button) findViewById(R.id.btnClear);
@@ -78,6 +85,43 @@ public class MainActivity extends ActionBarActivity {
 				txv.setText("");
 			}
 		});
+	}
+
+	private void test() {
+		final int count = 10000;
+
+		String result1 = "start";
+		for (int idx = 0; idx < count; idx++) {
+			result1 = new StringBuilder(result1).append("blah").toString();
+		}
+
+		
+		
+		
+		String linh = "L" + "i" + "n" + "h";
+		String linh1 = new StringBuilder("L").append("i").append("n")
+				.append("h").toString();
+		
+		
+		
+		String binh = "B";
+		binh = binh + "i";
+		binh = binh + "n";
+		binh = binh + "h";
+		
+		String binh1 = "B";
+		binh1 = new StringBuilder(binh1).append("i").toString();
+		binh1 = new StringBuilder(binh1).append("n").toString();
+		binh1 = new StringBuilder(binh1).append("h").toString();
+		
+		
+		
+		
+
+		StringBuilder result2 = new StringBuilder("start");
+		for (int idx = 0; idx < count; idx++) {
+			result2.append("blah");
+		}
 	}
 
 	private int[] convert(String[] tring, int length) { // Note the [] after the
