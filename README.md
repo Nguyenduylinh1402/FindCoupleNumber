@@ -14,3 +14,5 @@ Task using StringBuilder.append: 8,757,343 nanoseconds
 ==================
 String s = "hello";
 String s = new String("hello");
+
+http://blog.valdaris.com/post/string-concatenation-performance-java/
