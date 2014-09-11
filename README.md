@@ -16,3 +16,6 @@ String s = "hello";
 String s = new String("hello");
 
 http://blog.valdaris.com/post/string-concatenation-performance-java/
+==================
+Array and ArrayList
+http://java67.blogspot.com/2012/12/difference-between-array-vs-arraylist-java.html
